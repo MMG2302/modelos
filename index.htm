@@ -19,7 +19,7 @@
 
 <div id="contenido">
   <model-viewer 
-    src="modelo1.glb"
+    src="modelo.glb"
     ar
     ar-modes="scene-viewer quick-look webxr"
     camera-controls 
@@ -31,7 +31,7 @@
 
 <script>
   function acceder() {
-    const claveCorrecta = "mipassword123"; // Cambia esto
+    const claveCorrecta = "mipassword123"; // Cambia esto si querés otra clave
     const inputClave = document.getElementById("password").value;
     if(inputClave === claveCorrecta){
       document.getElementById("login").style.display = "none";
