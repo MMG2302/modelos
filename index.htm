@@ -2,36 +2,56 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Acceso Protegido</title>
+  <title>Modelo HVACR</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
-    body { margin: 0; background: #111; color: white; display: flex; align-items: center; justify-content: center; height: 100vh; flex-direction: column; }
-    #contenido { display: none; width: 100%; height: 100%; }
+    body {
+      margin: 0;
+      background: #111;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    #contenido {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+    }
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+    }
   </style>
 </head>
 <body>
 
 <div id="login">
-  <h2>Introduce la contraseña</h2>
+  <h2>Introduce la contraseña para ver el modelo</h2>
   <input type="password" id="password" placeholder="Contraseña">
   <button onclick="acceder()">Entrar</button>
 </div>
 
 <div id="contenido">
-  <model-viewer 
+  <model-viewer
     src="modelo.glb"
-    ar
-    ar-modes="scene-viewer quick-look webxr"
-    camera-controls 
+    camera-controls
     auto-rotate
-    exposure="1" 
-    environment-image="neutral">
+    environment-image="neutral"
+    exposure="1"
+    scale="2 2 2"
+    camera-orbit="0deg 75deg 2m"
+    ar
+    ar-modes="scene-viewer quick-look webxr">
   </model-viewer>
 </div>
 
 <script>
   function acceder() {
-    const claveCorrecta = "mipassword123"; // Cambia esto si querés otra clave
+    const claveCorrecta = "mipassword123"; // cámbiala si querés
     const inputClave = document.getElementById("password").value;
     if(inputClave === claveCorrecta){
       document.getElementById("login").style.display = "none";
@@ -40,7 +60,4 @@
       alert("Contraseña incorrecta");
     }
   }
-</script>
-
-</body>
-</html>
+</script
