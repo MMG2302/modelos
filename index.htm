@@ -2,62 +2,25 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Modelo HVACR</title>
+  <title>Visor 3D de Modelo GLB</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
-    body {
-      margin: 0;
-      background: #111;
-      color: white;
-      font-family: sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      flex-direction: column;
-    }
-    #contenido {
-      display: none;
-      width: 100vw;
-      height: 100vh;
-    }
-    model-viewer {
-      width: 100vw;
-      height: 100vh;
-    }
+    body { margin: 0; background: #111; color: white; text-align: center; }
+    model-viewer { width: 100vw; height: 100vh; }
   </style>
 </head>
 <body>
-
-<div id="login">
-  <h2>Introduce la contraseña para ver el modelo</h2>
-  <input type="password" id="password" placeholder="Contraseña">
-  <button onclick="acceder()">Entrar</button>
-</div>
-
-<div id="contenido">
-  <model-viewer
-    src="modelo.glb"
-    camera-controls
+  <h1>Modelo 3D</h1>
+  <model-viewer 
+    src="https://raw.githubusercontent.com/MMG2302/modelos/main/modelo.glb"
+    alt="Modelo 3D"
     auto-rotate
-    environment-image="neutral"
-    exposure="1"
-    scale="2 2 2"
-    camera-orbit="0deg 75deg 2m"
+    camera-controls
     ar
-    ar-modes="scene-viewer quick-look webxr">
+    shadow-intensity="1"
+    exposure="1"
+    environment-image="neutral"
+  >
   </model-viewer>
-</div>
-
-<script>
-  function acceder() {
-    const claveCorrecta = "mipassword123"; // cámbiala si querés
-    const inputClave = document.getElementById("password").value;
-    if(inputClave === claveCorrecta){
-      document.getElementById("login").style.display = "none";
-      document.getElementById("contenido").style.display = "block";
-    } else {
-      alert("Contraseña incorrecta");
-    }
-  }
-</script
+</body>
+</html>
